@@ -42,7 +42,17 @@
     .st p{margin:0;color:var(--muted);font-size:14px}
     .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#bfdbfe;font-weight:900}
+    .tag{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:6px 12px;
+        border-radius:999px;
+        background:#bfdbfe;
+        color:#0b1220;
+        font-size:13px;
+        font-weight:700;
+        }
     .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
     .step{padding:16px;border-radius:18px;border:1px solid rgba(148,163,184,.18);background:rgba(2,6,23,.35);min-height:120px}
     .step .n{font-weight:900;color:#bfdbfe}
@@ -83,7 +93,7 @@
           <h1>비아파트 매도는<br>‘감’이 아니라 <span style="color:#93c5fd">근거</span>로</h1>
           <div class="sub">
             <p style="margin:0 0 10px">실거래가가 부족한 비아파트는 ‘감’으로 가격이 잡히기 쉽습니다.</p>
-            <p style="margin:0">빌라프라이스는 비교 데이터 + 현장 요인 + 경쟁 매물을 조합해 팔릴 수 있는 판매 가격 방향을 제안합니다.</p>
+            <p style="margin:0">빌라프라이스는 <strong>비교 데이터 + 현장 요인 + 경쟁 매물</strong>을 조합해 팔릴 수 있는 판매 가격 방향을 제안합니다.</p>
           </div>
           <div class="actions">
             <a class="btn" href="villa.html">빌라/비아파트 리포트 (10만원)</a>
@@ -94,10 +104,12 @@
           <div class="tag">판매 가격 제안</div>
           <h3 style="margin:10px 0 8px">상황별로 다르게 제안합니다</h3>
           <p style="margin:0 0 10px;color:var(--muted2);line-height:1.7">
-            빠르게 매도해야 하는 상황, 조금 더 지켜봐도 되는 상황 — 개인마다 매도 시점은 다를 수 있습니다.
+            빠르게 매도해야 하는 상황, 조금 더 지켜봐도 되는 상황 <br>
+            개인마다 매도 시점은 다를 수 있습니다.
           </p>
           <p style="margin:0;color:var(--muted2);line-height:1.7">
-            앞으로의 시장 상황까지 고려해, 현실적으로 시도해볼 수 있는 판매 가격 방향을 제안합니다.
+            앞으로의 시장 상황까지 고려해<br>
+            현실적으로 시도해볼 수 있는 판매 가격 방향을 제안합니다.
           </p>
         </aside>
       </div>
@@ -107,16 +119,16 @@
       <div class="wrap">
         <div class="st"><h2 class="reveal">왜 안 팔릴까</h2><p class="reveal">가격 하나가 아니라, 조건이 겹쳐서 막히는 경우가 많습니다.</p></div>
         <div class="g3">
-          <div class="card reveal"><div class="tag">① 비교 데이터</div><h3>유사 매물 대비 포지션</h3><p>유사 거래/현재 매물과 비교해 내 매물이 어디에 위치하는지 정리합니다.</p></div>
-          <div class="card reveal"><div class="tag">② 현장 요인</div><h3>층·일조·주차·동선</h3><p>‘같은 평형’이라도 팔림을 가르는 조건을 체크합니다.</p></div>
-          <div class="card reveal"><div class="tag">③ 경쟁 매물</div><h3>지금 시장의 대안</h3><p>고객이 실제로 비교하는 경쟁 매물 흐름을 반영합니다.</p></div>
+          <div class="card reveal"><div class="tag">① 비교 데이터</div><h3>유사 매물 대비 포지션</h3><p>유사 실거래/현재 매물과 비교해<br>내 매물이 어디에 위치하는지 정리합니다.</p></div>
+          <div class="card reveal"><div class="tag">② 현장 요인</div><h3>층·방 개수·주차·인프라 등</h3><p>‘같은 평형’이라도 판매가 갈리는 조건을 체크합니다.</p></div>
+          <div class="card reveal"><div class="tag">③ 경쟁 매물</div><h3>내 매물의 경쟁 매물</h3><p>고객이 실제로 비교하는 매물들의 흐름을 반영합니다.</p></div>
         </div>
       </div>
     </section>
 
     <section id="report">
       <div class="wrap">
-        <div class="st"><h2 class="reveal">리포트 구성</h2><p class="reveal">리포트는 A/B 두 파트로 구성됩니다.</p></div>
+        <div class="st"><h2 class="reveal">리포트 구성</h2></div>
         <div class="g2">
           <div class="card reveal" style="padding:22px"><div class="tag">A</div><h3>비교 데이터 + 현장 요인</h3><p>비교 기준을 만들고 현장 요인을 함께 묶어 해석합니다.</p></div>
           <div class="card reveal" style="padding:22px"><div class="tag">B</div><h3>판매 가격 제안</h3><p>시장 상황과 매도 시점을 고려해 가격 방향을 제안합니다.</p></div>
@@ -128,10 +140,10 @@
       <div class="wrap">
         <div class="st"><h2 class="reveal">이용 절차</h2><p class="reveal">상품 선택 → 접수(정보 입력) → 결제 → 제작 → PDF 보고서 발송</p></div>
         <div class="steps">
-          <div class="step reveal"><div class="n">1</div><div class="t">상품 선택</div><div class="d">다세대주택, 다가구, 빌라, 도시형 생활주택 (10만원)<br>아파트, 오피스텔 (5만원)</div></div>
+          <div class="step reveal"><div class="n">1</div><div class="t">상품 선택</div><div class="d">빌라(다세대주택, 다가구주택), 도시형 생활주택 (10만원)<br>아파트, 오피스텔 (5만원)</div></div>
           <div class="step reveal"><div class="n">2</div><div class="t">접수(정보 입력)</div><div class="d">매물 주소, 상황, 조건 정보를 입력합니다.</div></div>
-          <div class="step reveal"><div class="n">3</div><div class="t">결제</div><div class="d">내용 확인 후 결제 단계로 이동합니다.</div></div>
-          <div class="step reveal"><div class="n">4</div><div class="t">제작</div><div class="d">비교 데이터 + 현장 요인 + 경쟁 매물로 리포트를 제작합니다.</div></div>
+          <div class="step reveal"><div class="n">3</div><div class="t">결제</div><div class="d">내용 확인 후 결제해주세요.</div></div>
+          <div class="step reveal"><div class="n">4</div><div class="t">제작</div><div class="d">비교 데이터 + 현장 요인 + 경쟁 매물을 분석합니다.</div></div>
           <div class="step reveal"><div class="n">5</div><div class="t">PDF 보고서 발송</div><div class="d">영업일 기준 3~4일 내 이메일 전달</div></div>
         </div>
         <p class="reveal" style="margin-top:14px;color:var(--muted);font-size:13px">민감한 고객 데이터를 제외한 해당 매물 분석 내용은 빌라프라이스 콘텐츠에 활용될 수 있습니다</p>
