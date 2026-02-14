@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>신청 완료 | VillaPrice</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="success-card">
+      <div class="badge">신청 완료</div>
+      <h1>접수가 완료되었습니다.</h1>
+      <p class="muted">
+        영업일 기준 3~4일 내 리포트 전달드리겠습니다.<br/>
+        잠시만 기다려주세요.
+      </p>
+
+      <div class="success-actions">
+        <a class="btn btn-ghost" href="./index.html">홈으로</a>
+        <a class="btn btn-primary" href="./contact.html">문의하기</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // (선택) 결제 성공 파라미터 확인용
+    // toss successUrl로 돌아올 때 query에 paymentKey, orderId, amount 등이 붙는 형태가 많아
+    // 필요하면 여기서 파라미터 읽어서 화면 표시/검증/시트 기록 요청 등을 할 수 있어.
+    const qs = new URLSearchParams(location.search);
+    // console.log("paymentKey", qs.get("paymentKey"));
+  </script>
+</body>
+</html>
