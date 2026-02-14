@@ -1,31 +1,90 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SUCCESS TEST</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>신청 완료 | 빌라프라이스</title>
+
+<style>
+body{
+ margin:0;
+ font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
+ background:radial-gradient(900px 500px at 50% 0%,rgba(37,99,235,.22),transparent 60%),linear-gradient(180deg,#0f172a 0%,#020617 65%);
+ color:#e5e7eb;
+}
+.wrap{max-width:980px;margin:0 auto;padding:40px 20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:20px}
+.brand img{height:38px}
+.card{
+ background:rgba(15,23,42,.72);
+ border:1px solid rgba(148,163,184,.16);
+ border-radius:20px;
+ padding:28px;
+ box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+.badge{
+ display:inline-block;
+ padding:8px 12px;
+ border-radius:999px;
+ border:1px solid rgba(96,165,250,.35);
+ background:rgba(2,6,23,.4);
+ color:#dbeafe;
+ font-weight:900;
+ font-size:13px;
+}
+h1{margin:14px 0 8px;font-size:30px}
+.muted{color:#94a3b8;line-height:1.7}
+.actions{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.btn{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ height:46px;
+ border-radius:14px;
+ text-decoration:none;
+ font-weight:900;
+ border:1px solid rgba(148,163,184,.22);
+ background:rgba(15,23,42,.55);
+ color:#e5e7eb;
+}
+.btn.primary{
+ background:linear-gradient(135deg,#2563eb,#60a5fa);
+ border:none;
+ box-shadow:0 16px 40px rgba(37,99,235,.35);
+}
+footer{margin-top:18px;color:#94a3b8;font-size:12px}
+</style>
 </head>
 
-<body style="margin:0;background:#020617;color:#e5e7eb;font-family:system-ui;">
-  <div style="max-width:720px;margin:60px auto;padding:24px;border:1px solid rgba(255,255,255,.15);border-radius:16px;">
-    <div style="display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(96,165,250,.35);background:rgba(2,6,23,.35);color:#dbeafe;font-weight:800;font-size:12px;">
-      DEPLOY CHECK
-    </div>
-    <h1 style="margin:14px 0 8px;">success.html이 이 화면이면 배포/경로 정상</h1>
-    <p style="margin:0;color:#94a3b8;line-height:1.7;">
-      지금 이 페이지가 계속 하얗다면, 너는 이 파일을 보고 있는 게 아니라<br/>
-      다른 파일/다른 브랜치/빌드 실패 결과물을 보고 있는 거야.
-    </p>
+<body>
 
-    <div style="margin-top:16px;">
-      <a href="./index.html" style="display:inline-block;padding:12px 14px;border-radius:12px;background:#2563eb;color:white;text-decoration:none;font-weight:800;">홈으로</a>
-    </div>
-  </div>
+<div class="wrap">
 
-  <script>
-    // JS로도 한번 더 강제 (혹시 확장프로그램/스타일 충돌이면 여기서라도 바뀜)
-    document.body.style.background = "#020617";
-    document.body.style.color = "#e5e7eb";
-  </script>
+<a class="brand" href="index.html">
+<img src="white-logo.png">
+<b>빌라프라이스</b>
+</a>
+
+<div class="card">
+
+<div class="badge">신청 완료</div>
+
+<h1>접수가 완료되었습니다.</h1>
+
+<p class="muted">
+영업일 기준 <b style="color:#e0e7ff">3~4일</b> 내 리포트를 전달드리겠습니다.<br>
+잠시만 기다려주세요.
+</p>
+
+<div class="actions">
+<a class="btn primary" href="index.html">홈으로</a>
+<a class="btn" href="index.html#contact">문의하기</a>
+</div>
+
+<footer>© 2026 VillaPrice. All rights reserved.</footer>
+
+</div>
+</div>
+
 </body>
 </html>
