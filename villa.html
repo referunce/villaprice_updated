@@ -1,10 +1,22 @@
-<!-- villa.html (수정본 / 통째로 덮어쓰기) -->
+<!-- villa.html (최종 수정본 / 통째로 덮어쓰기) -->
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>빌라/비아파트 리포트 신청 | 빌라프라이스</title>
+
+  <title>빌라 매도 가격 분석 리포트(비아파트) | 빌라프라이스</title>
+  <meta name="description" content="빌라·다세대·다가구 등 비아파트 매도 가격 분석 리포트. 실거래 기반 비교 데이터 + 현장 요인 + 경쟁 매물 흐름을 종합해 현실적인 판매 가격 방향을 제안합니다. (영업일 3~4일 PDF 이메일 전달)">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="빌라프라이스 | 빌라/비아파트 매도 가격 분석 리포트">
+  <meta property="og:description" content="실거래 비교 + 현장 요인 + 경쟁 매물 흐름으로 팔릴 수 있는 판매 가격 방향 제안 (영업일 3~4일 PDF 전달)">
+  <meta property="og:image" content="https://referunce.github.io/villaprice_updated/og-image.png">
+  <meta property="og:url" content="https://referunce.github.io/villaprice_updated/villa.html">
+
   <link rel="icon" href="favicon.png" />
+
   <style>
     :root{
       --bg:#020617;--card:#0f172a;--line:#1e293b;--text:#e5e7eb;--muted:#94a3b8;--muted2:#cbd5e1;--blue:#2563eb;--blue2:#60a5fa;
@@ -14,7 +26,8 @@
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;
-      background: radial-gradient(900px 500px at 50% 0%, rgba(37,99,235,.22), transparent 60%), linear-gradient(180deg,#0f172a 0%,#020617 65%);
+      background: radial-gradient(900px 500px at 50% 0%, rgba(37,99,235,.22), transparent 60%),
+                  linear-gradient(180deg,#0f172a 0%,#020617 65%);
       color:var(--text);
     }
     a{color:inherit}
@@ -22,14 +35,16 @@
     .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:38px}
+    .brand b{color:var(--text)} /* 혹시 색 꼬이면 여기서 고정 */
     .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:#dbeafe;background:rgba(2,6,23,.35);font-weight:800;font-size:13px}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 
-    /* ✅ 왼쪽 2개 카드 묶음 안정화 */
+    /* ✅ 왼쪽 카드 묶음 */
     .left-col{display:flex;flex-direction:column;gap:16px}
 
     .card{background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
     h1{font-size:26px;margin:8px 0 8px}
+    h2{font-size:18px;margin:0 0 10px}
     .muted{color:var(--muted);font-size:13px;line-height:1.7}
     .list{margin:12px 0 0;padding-left:18px;color:var(--muted2)}
     .list li{margin:8px 0}
@@ -59,7 +74,7 @@
     .hidden{display:none}
 
     .why-cost{
-      margin-top:14px;
+      margin-top:0; /* left-col gap으로 충분 */
       padding:14px 16px;
       border-radius:12px;
       background: rgba(255,255,255,0.04);
@@ -117,12 +132,14 @@
   <div class="wrap">
     <div class="top">
       <a class="brand" href="index.html">
-        <img src="white-logo.png" alt="빌라프라이스 부동산 매도 분석 리포트 서비스"><b>빌라프라이스</b>
+        <img src="white-logo.png" alt="빌라프라이스 부동산 매도 분석 리포트 서비스">
+        <b>빌라프라이스</b>
       </a>
       <a class="btn" href="index.html#price">다른 상품 보기</a>
     </div>
 
     <div class="grid">
+      <!-- ✅ LEFT COLUMN (여기 안에 카드 3개가 들어가야 함) -->
       <div class="left-col">
         <div class="card">
           <div class="pill">다세대주택 · 다가구 · 빌라 · 도시형 생활주택</div>
@@ -156,16 +173,19 @@
             이에 따라 비아파트 리포트는 아파트 리포트와 차별화된 분석 비용이 적용됩니다.
           </p>
         </div>
+
+        <!-- ✅ SEO 카드: 반드시 left-col 안쪽 -->
+        <div class="card">
+          <h2>빌라 매도 가격 분석이 필요한 이유</h2>
+          <p class="muted">
+            빌라와 비아파트 시장은 동일 평형 비교 데이터가 제한적이며,
+            개별 매물의 입지, 개발 이슈, 경쟁 매물 흐름에 따라 가격 편차가 크게 발생합니다.
+            빌라프라이스는 실거래 데이터와 시장 흐름을 기반으로 현실적인 매도 전략을 제안합니다.
+          </p>
+        </div>
       </div>
-    <div class="card">
-      <h2>빌라 매도 가격 분석이 필요한 이유</h2>
-      <p class="muted">
-        빌라와 비아파트 시장은 동일 평형 비교 데이터가 제한적이며,
-        개별 매물의 입지, 개발 이슈, 경쟁 매물 흐름에 따라 가격 편차가 크게 발생합니다.
-        빌라프라이스는 실거래 데이터와 시장 흐름을 기반으로 현실적인 매도 전략을 제안합니다.
-      </p>
-    </div>
-      
+
+      <!-- ✅ RIGHT COLUMN -->
       <div class="card form-card">
         <div class="stepbar" aria-label="단계">
           <div class="dot on" id="dot1"></div>
@@ -197,7 +217,7 @@
                   type="tel"
                   name="phone"
                   placeholder="010-0000-0000"
-                  pattern="^\d{3}-\d{4}-\d{4}$"
+                  pattern="^\\d{3}-\\d{4}-\\d{4}$"
                   required
                 />
               </div>
@@ -276,11 +296,9 @@
               <div class="pay-price">10만원</div>
             </div>
 
-            <!-- ✅ 버튼 순서: 수정하기(위) → 결제하기(아래) -->
             <div class="pay-actions">
               <button class="btn" type="button" onclick="backEdit()">수정하기</button>
 
-              <!-- ✅ 토스 승인 후에는 successUrl이 success.html로 오도록 설정하면 "자동 신청완료"가 된다 -->
               <a class="btn primary" id="payBtn"
                  href="https://pay.toss.im/빌라결제링크"
                  rel="noopener">토스로 결제하기</a>
@@ -301,7 +319,6 @@
   </div>
 
 <script>
-  // ✅ 2단계 점등 로직
   function setDots(n){
     document.getElementById('dot1').classList.toggle('on', n>=1);
     document.getElementById('dot2').classList.toggle('on', n>=2);
@@ -313,7 +330,6 @@
     setDots(n);
   }
 
-  // ✅ STEP1 제출 → Netlify 저장(POST) → STEP2 리뷰
   function goReview(e){
     e.preventDefault();
 
