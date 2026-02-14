@@ -1,3 +1,4 @@
+<!-- apartment.html (수정본 / 통째로 덮어쓰기) -->
 <!doctype html>
 <html lang="ko">
 <head>
@@ -29,9 +30,12 @@
     .muted{color:var(--muted);font-size:13px;line-height:1.7}
     .list{margin:12px 0 0;padding-left:18px;color:var(--muted2)}
     .list li{margin:8px 0}
+
+    /* ✅ 2단계만 사용 */
     .stepbar{display:flex;gap:8px;margin-top:14px}
     .dot{flex:1;height:8px;border-radius:999px;background:rgba(148,163,184,.18)}
     .dot.on{background:linear-gradient(90deg, rgba(37,99,235,1), rgba(96,165,250,1))}
+
     label{display:block;margin-top:12px;color:#cbd5e1;font-weight:800;font-size:13px}
     input,select,textarea{
       width:100%;margin-top:8px;padding:12px 12px;border-radius:14px;border:1px solid rgba(148,163,184,.22);
@@ -39,6 +43,7 @@
     }
     textarea{min-height:96px;resize:vertical}
     .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
     .btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -50,6 +55,7 @@
     .btn.primary{background:linear-gradient(135deg, rgba(37,99,235,1), rgba(96,165,250,1));border:none;box-shadow:0 16px 40px rgba(37,99,235,.35)}
     .btn.primary:hover{transform:translateY(-2px)}
     .hidden{display:none}
+
     .review{display:grid;gap:10px;margin-top:10px}
     .kv{display:flex;justify-content:space-between;gap:12px;border:1px solid rgba(148,163,184,.14);background:rgba(2,6,23,.35);padding:12px;border-radius:16px}
     .kv b{color:#c7d2fe}
@@ -57,7 +63,7 @@
     .fine{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.7}
     footer{margin-top:26px;color:var(--muted);font-size:12px}
 
-    /* ✅ 결제 박스(빌라와 동일 스타일) */
+    /* ✅ 결제 박스 */
     .pay-box{
       margin-top:12px;
       padding:14px 16px;
@@ -73,6 +79,15 @@
       margin-bottom:10px;
     }
     .pay-price{font-weight:900;font-size:16px}
+
+    /* ✅ 결제 버튼 스택(위/아래) */
+    .pay-actions{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pay-actions .btn{width:100%}
 
     @media (max-width: 920px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
   </style>
@@ -100,7 +115,7 @@
 
         <div class="fine">
           • 제출 후 <b>작성 내용 확인</b> 화면에서 최종 확인 후 결제합니다.<br>
-          • 제작 완료 후 영업일 기준 3~4일 내 이메일로 PDF 리포트를 전달합니다.
+          • 결제 완료 시 <b>신청 완료 페이지</b>로 자동 이동합니다. (토스 승인 후 successUrl 연동 시)
         </div>
       </div>
 
@@ -108,7 +123,6 @@
         <div class="stepbar" aria-label="단계">
           <div class="dot on" id="dot1"></div>
           <div class="dot" id="dot2"></div>
-          <div class="dot" id="dot3"></div>
         </div>
 
         <!-- ✅ STEP 1 -->
@@ -135,7 +149,7 @@
                        name="phone"
                        type="tel"
                        placeholder="010-0000-0000"
-                       pattern="^\\d{3}-\\d{4}-\\d{4}$"
+                       pattern="^\d{3}-\d{4}-\d{4}$"
                        required>
               </div>
               <div>
@@ -211,35 +225,19 @@
               <div class="pay-price">5만원</div>
             </div>
 
-            <!-- ✅ 여기 링크만 너 토스 링크로 교체하면 됨 -->
-            <a class="btn primary" id="payBtn" href="https://pay.toss.im/아파트결제링크" target="_blank" rel="noopener">토스로 결제하기</a>
+            <!-- ✅ 버튼 순서: 수정하기(위) → 결제하기(아래) -->
+            <div class="pay-actions">
+              <button class="btn" type="button" onclick="backEdit()">수정하기</button>
 
-            <!-- ✅ 링크 결제는 자동성공 판별이 불가 → 단계 전환 버튼 제공 -->
-            <div class="btns" style="margin-top:10px">
-              <button class="btn" onclick="backEdit()">수정하기</button>
-              <button class="btn" onclick="markPaid()">결제 완료했어요</button>
+              <a class="btn primary" id="payBtn"
+                 href="https://pay.toss.im/아파트결제링크"
+                 rel="noopener">토스로 결제하기</a>
             </div>
 
             <div class="fine">
-              결제 완료가 확인되면 영업일 기준 3~4일 내 리포트를 이메일로 전달드립니다.
+              결제가 완료되면 <b>신청 완료 페이지</b>로 자동 이동합니다.<br>
+              (현재는 토스 승인 전 “결제 링크 방식”이면 자동 이동이 제한될 수 있어요. 승인 후 successUrl 연동하면 완전 자동으로 됩니다.)
             </div>
-          </div>
-        </div>
-
-        <!-- ✅ STEP 3 -->
-        <div id="step3" class="hidden">
-          <h1 style="margin-top:14px;font-size:20px">3) 결제 완료</h1>
-
-          <div class="pay-box">
-            <div style="font-weight:900;margin-bottom:6px">접수가 완료되었습니다.</div>
-            <div class="muted">
-              영업일 기준 3~4일 내, 기재해주신 이메일로 PDF 리포트를 전달드립니다.
-            </div>
-          </div>
-
-          <div class="btns">
-            <a class="btn primary" href="index.html">홈으로</a>
-            <button class="btn" onclick="backToStep2()">결제 정보 다시 보기</button>
           </div>
         </div>
 
@@ -251,17 +249,15 @@
   </div>
 
 <script>
-  // ✅ 점등: 1단계면 dot1만, 2단계면 dot1+dot2, 3단계면 전부
+  // ✅ 2단계 점등
   function setDots(n){
     document.getElementById('dot1').classList.toggle('on', n>=1);
     document.getElementById('dot2').classList.toggle('on', n>=2);
-    document.getElementById('dot3').classList.toggle('on', n>=3);
   }
 
   function showStep(n){
     document.getElementById('step1').classList.toggle('hidden', n!==1);
     document.getElementById('step2').classList.toggle('hidden', n!==2);
-    document.getElementById('step3').classList.toggle('hidden', n!==3);
     setDots(n);
   }
 
@@ -318,16 +314,6 @@
 
   function backEdit(){
     showStep(1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function markPaid(){
-    showStep(3);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function backToStep2(){
-    showStep(2);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
