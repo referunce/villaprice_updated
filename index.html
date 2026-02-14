@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>빌라프라이스 | 비아파트 매도 가격 제안 리포트</title>
+  <link rel="icon" href="favicon.png" />
+  <style>
+    :root{--bg:#020617;--card:#0f172a;--line:#1e293b;--text:#e5e7eb;--muted:#94a3b8;--muted2:#cbd5e1;--blue:#2563eb;--blue2:#60a5fa;--r:20px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:var(--text);
+      background:radial-gradient(1200px 600px at 50% 5%, rgba(37,99,235,.25), transparent 60%),
+      linear-gradient(180deg,#0f172a 0%,#0b1220 42%,#020617 100%);overflow-x:hidden}
+    a{color:inherit}
+    .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+    .header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:rgba(2,6,23,.55);border-bottom:1px solid rgba(30,41,59,.6)}
+    .h-in{height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{height:44px}
+    .nav{display:flex;gap:22px;transform:translateX(14px)}
+    .nav a{text-decoration:none;color:#dbeafe;font-size:14px;padding:10px 10px;border-radius:12px;opacity:.88;transition:.2s}
+    .nav a:hover{background:rgba(148,163,184,.12);opacity:1}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:14px;padding:14px 22px;text-decoration:none;font-weight:900;font-size:14px;color:#fff;
+      background:linear-gradient(135deg, rgba(37,99,235,1), rgba(96,165,250,1));box-shadow:0 16px 40px rgba(37,99,235,.35);transition:.2s}
+    .btn:hover{transform:translateY(-2px)}
+    .hero{position:relative;padding:72px 0 20px}
+    .graph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.13;filter:blur(3px);pointer-events:none}
+    .hero-grid{position:relative;display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:#dbeafe;background:rgba(2,6,23,.35);font-weight:900;font-size:13px}
+    h1{margin:18px 0 12px;font-size:46px;line-height:1.25;letter-spacing:-.02em}
+    .sub{margin:0;color:var(--muted2);font-size:18px;line-height:1.7;max-width:46ch}
+    .price-list li{margin:8px 0;line-height:1.6}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:14px;padding:14px 18px;text-decoration:none;font-weight:900;
+      border:1px solid rgba(148,163,184,.22);background:rgba(15,23,42,.45)}
+    .ghost:hover{border-color:rgba(96,165,250,.45)}
+    .card{background:rgba(15,23,42,.62);border:1px solid rgba(148,163,184,.16);border-radius:var(--r);padding:18px;box-shadow:0 18px 40px rgba(0,0,0,.22);transition:.25s}
+    .card:hover{transform:translateY(-3px);border-color:rgba(96,165,250,.28)}
+    section{padding:54px 0;scroll-margin-top:92px}
+    .st{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px}
+    .st h2{margin:0;font-size:24px}
+    .st p{margin:0;color:var(--muted);font-size:14px}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .tag{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#bfdbfe;font-weight:900}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    .step{padding:16px;border-radius:18px;border:1px solid rgba(148,163,184,.18);background:rgba(2,6,23,.35);min-height:120px}
+    .step .n{font-weight:900;color:#bfdbfe}
+    .step .t{margin-top:10px;font-weight:900}
+    .step .d{margin-top:8px;color:var(--muted2);font-size:13px;line-height:1.55}
+    details{background:rgba(15,23,42,.58);border:1px solid rgba(148,163,184,.16);border-radius:18px;padding:14px 16px}
+    summary{cursor:pointer;font-weight:900}
+    details p{margin:10px 0 0;color:var(--muted2);font-size:14px}
+    .reveal{opacity:0;transform:translateY(14px);transition:.6s}
+    .reveal.show{opacity:1;transform:none}
+    footer{padding:42px 0;border-top:1px solid rgba(30,41,59,.8);background:rgba(2,6,23,.6)}
+    .f-in{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .fbrand{display:flex;align-items:center;gap:10px}
+    .fbrand img{height:28px}
+    .flinks{display:flex;gap:14px;flex-wrap:wrap}
+    .flinks a{color:#cbd5e1;text-decoration:none;font-weight:900;font-size:13px;opacity:.9}
+    .flinks a:hover{opacity:1}
+    @media (max-width:960px){.hero-grid{grid-template-columns:1fr}h1{font-size:38px}.steps{grid-template-columns:1fr}.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}.nav{display:none}.h-in{height:auto;padding:14px 0}}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="wrap h-in">
+      <a class="brand" href="index.html"><img src="white-logo.png" alt="빌라프라이스 로고"></a>
+      <nav class="nav">
+        <a href="#why">왜 안팔릴까</a><a href="#report">리포트 구성</a><a href="#process">이용 절차</a><a href="#price">가격</a><a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn" href="#price">리포트 의뢰</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <img class="graph" src="price-graph.png" alt="">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="pill">부동산 분석 592건, 3채 중 1채가 실제로 팔렸습니다</div>
+          <h1>비아파트 매도는<br>‘감’이 아니라 <span style="color:#93c5fd">근거</span>로.</h1>
+          <div class="sub">
+            <p style="margin:0 0 10px">실거래가가 부족한 비아파트는 ‘감’으로 가격이 잡히기 쉽습니다.</p>
+            <p style="margin:0">빌라프라이스는 비교 데이터 + 현장 요인 + 경쟁 매물을 조합해 팔릴 수 있는 판매 가격 방향을 제안합니다.</p>
+          </div>
+          <div class="actions">
+            <a class="btn" href="villa.html">빌라/비아파트 리포트 (10만원)</a>
+            <a class="ghost" href="apartment.html">아파트/오피스텔 리포트 (5만원)</a>
+          </div>
+        </div>
+        <aside class="card reveal" style="padding:22px">
+          <div class="tag">판매 가격 제안</div>
+          <h3 style="margin:10px 0 8px">상황별로 다르게 제안합니다</h3>
+          <p style="margin:0 0 10px;color:var(--muted2);line-height:1.7">
+            빠르게 매도해야 하는 상황, 조금 더 지켜봐도 되는 상황 — 개인마다 매도 시점은 다를 수 있습니다.
+          </p>
+          <p style="margin:0;color:var(--muted2);line-height:1.7">
+            앞으로의 시장 상황까지 고려해, 현실적으로 시도해볼 수 있는 판매 가격 방향을 제안합니다.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="st"><h2 class="reveal">왜 안 팔릴까</h2><p class="reveal">가격 하나가 아니라, 조건이 겹쳐서 막히는 경우가 많습니다.</p></div>
+        <div class="g3">
+          <div class="card reveal"><div class="tag">① 비교 데이터</div><h3>유사 매물 대비 포지션</h3><p>유사 거래/현재 매물과 비교해 내 매물이 어디에 위치하는지 정리합니다.</p></div>
+          <div class="card reveal"><div class="tag">② 현장 요인</div><h3>층·일조·주차·동선</h3><p>‘같은 평형’이라도 팔림을 가르는 조건을 체크합니다.</p></div>
+          <div class="card reveal"><div class="tag">③ 경쟁 매물</div><h3>지금 시장의 대안</h3><p>고객이 실제로 비교하는 경쟁 매물 흐름을 반영합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="report">
+      <div class="wrap">
+        <div class="st"><h2 class="reveal">리포트 구성</h2><p class="reveal">리포트는 A/B 두 파트로 구성됩니다.</p></div>
+        <div class="g2">
+          <div class="card reveal" style="padding:22px"><div class="tag">A</div><h3>비교 데이터 + 현장 요인</h3><p>비교 기준을 만들고 현장 요인을 함께 묶어 해석합니다.</p></div>
+          <div class="card reveal" style="padding:22px"><div class="tag">B</div><h3>판매 가격 제안</h3><p>시장 상황과 매도 시점을 고려해 가격 방향을 제안합니다.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="st"><h2 class="reveal">이용 절차</h2><p class="reveal">상품 선택 → 접수(정보 입력) → 결제 → 제작 → PDF 보고서 발송</p></div>
+        <div class="steps">
+          <div class="step reveal"><div class="n">1</div><div class="t">상품 선택</div><div class="d">다세대주택, 다가구, 빌라, 도시형 생활주택 (10만원)<br>아파트, 오피스텔 (5만원)</div></div>
+          <div class="step reveal"><div class="n">2</div><div class="t">접수(정보 입력)</div><div class="d">매물 주소, 상황, 조건 정보를 입력합니다.</div></div>
+          <div class="step reveal"><div class="n">3</div><div class="t">결제</div><div class="d">내용 확인 후 결제 단계로 이동합니다.</div></div>
+          <div class="step reveal"><div class="n">4</div><div class="t">제작</div><div class="d">비교 데이터 + 현장 요인 + 경쟁 매물로 리포트를 제작합니다.</div></div>
+          <div class="step reveal"><div class="n">5</div><div class="t">PDF 보고서 발송</div><div class="d">영업일 기준 3~4일 내 이메일 전달</div></div>
+        </div>
+        <p class="reveal" style="margin-top:14px;color:var(--muted);font-size:13px">민감한 고객 데이터를 제외한 해당 매물 분석 내용은 빌라프라이스 콘텐츠에 활용될 수 있습니다</p>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="wrap">
+        <div class="st"><h2 class="reveal">가격</h2></div>
+        <div class="g2">
+          <div class="card reveal" style="padding:22px;display:flex;flex-direction:column">
+            <div class="tag">빌라/비아파트</div>
+            <div style="display:flex;gap:10px;align-items:baseline;margin:10px 0 12px"><b style="font-size:34px">10만원</b><span style="color:var(--muted);font-weight:900">다세대·다가구·빌라·도시형</span></div>
+            <ul class="price-list" style="margin:12px 0 0;padding-left:18px;color:var(--muted2)"><li>비교 데이터 + 현장 요인 + 경쟁 매물</li><li>판매 가격 제안</li><li>PDF 이메일 전달(영업일 3~4일)</li></ul>
+            <div style="margin-top:18px;display:flex;justify-content:flex-end"><a class="btn" href="villa.html">빌라 리포트 신청</a></div>
+          </div>
+          <div class="card reveal" style="padding:22px;display:flex;flex-direction:column">
+            <div class="tag">아파트/오피스텔</div>
+            <div style="display:flex;gap:10px;align-items:baseline;margin:10px 0 12px"><b style="font-size:34px">5만원</b><span style="color:var(--muted);font-weight:900">아파트·오피스텔</span></div>
+            <ul class="price-list" style="margin:12px 0 0;padding-left:18px;color:var(--muted2)"><li>기본 비교 데이터 정리</li><li>판매 가격 방향 제안</li><li>PDF 이메일 전달(영업일 3~4일)</li></ul>
+            <div style="margin-top:18px;display:flex;justify-content:flex-end"><a class="btn" href="apartment.html">아파트 리포트 신청</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="st"><h2 class="reveal">FAQ</h2><p class="reveal">자주 묻는 질문</p></div>
+        <div style="display:grid;gap:10px">
+          <details class="reveal"><summary>가격을 하나로 딱 정해주나요?</summary><p>매도 상황과 시장 흐름은 사람마다 다릅니다. 빌라프라이스는 하나의 정답 가격이 아니라, 현실적으로 시도해볼 수 있는 판매 가격 방향을 제안합니다.</p></details>
+          <details class="reveal"><summary>실거래가가 거의 없어도 분석이 가능한가요?</summary><p>가능합니다. 유사 매물, 현장 요인, 경쟁 매물 흐름을 함께 분석해 기준선을 만들고 가격 방향을 설계합니다.</p></details>
+          <details class="reveal"><summary>제작 기간은 얼마나 걸리나요?</summary><p>접수 및 결제 완료 후 영업일 기준 3~4일 내 PDF 리포트를 이메일로 전달합니다.</p></details>
+          <details class="reveal"><summary>개인정보는 어떻게 처리되나요?</summary><p>민감한 개인정보는 수집하지 않으며, 고객 식별이 불가능한 범위 내에서 일부 분석 사례가 콘텐츠로 활용될 수 있습니다. 자세한 내용은 개인정보처리방침을 확인해 주세요.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap f-in">
+      <div class="fbrand"><img src="white-logo.png" alt="빌라프라이스 로고"><b>VillaPrice</b><span class="muted" style="margin-left:10px">© 2026 VillaPrice. All rights reserved.</span></div>
+      <div class="flinks"><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://blog.naver.com/villaprice" target="_blank" rel="noopener">블로그</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const els = [...document.querySelectorAll('.reveal')];
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
