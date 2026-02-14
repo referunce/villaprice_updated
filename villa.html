@@ -1,13 +1,15 @@
+<!-- success.html (신규 파일 / 신청 완료 페이지) -->
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>빌라/비아파트 리포트 신청 | 빌라프라이스</title>
+  <title>신청 완료 | 빌라프라이스</title>
   <link rel="icon" href="favicon.png" />
   <style>
     :root{
-      --bg:#020617;--card:#0f172a;--line:#1e293b;--text:#e5e7eb;--muted:#94a3b8;--muted2:#cbd5e1;--blue:#2563eb;--blue2:#60a5fa;
-      --radius:20px;--shadow:0 24px 60px rgba(0,0,0,.35);
+      --text:#e5e7eb;--muted:#94a3b8;
+      --shadow:0 24px 60px rgba(0,0,0,.35);
     }
     *{box-sizing:border-box}
     body{
@@ -16,378 +18,59 @@
       background: radial-gradient(900px 500px at 50% 0%, rgba(37,99,235,.22), transparent 60%), linear-gradient(180deg,#0f172a 0%,#020617 65%);
       color:var(--text);
     }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:30px 20px 70px}
-    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand img{height:38px}
-    .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:#dbeafe;background:rgba(2,6,23,.35);font-weight:800;font-size:13px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
-
-    /* ✅ 왼쪽 2개 카드 묶음 안정화 */
-    .left-col{display:flex;flex-direction:column;gap:16px}
-
-    .card{background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-    h1{font-size:26px;margin:8px 0 8px}
-    .muted{color:var(--muted);font-size:13px;line-height:1.7}
-    .list{margin:12px 0 0;padding-left:18px;color:var(--muted2)}
-    .list li{margin:8px 0}
-    .stepbar{display:flex;gap:8px;margin-top:14px}
-    .dot{flex:1;height:8px;border-radius:999px;background:rgba(148,163,184,.18)}
-    .dot.on{background:linear-gradient(90deg, rgba(37,99,235,1), rgba(96,165,250,1))}
-    label{display:block;margin-top:12px;color:#cbd5e1;font-weight:800;font-size:13px}
-    input,select,textarea{
-      width:100%;margin-top:8px;padding:12px 12px;border-radius:14px;border:1px solid rgba(148,163,184,.22);
-      background:rgba(2,6,23,.4);color:var(--text);outline:none
-    }
-    textarea{min-height:96px;resize:vertical}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .btns{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      border-radius:14px;padding:14px 16px;text-decoration:none;font-weight:900;font-size:14px;
-      border:1px solid rgba(148,163,184,.22);background:rgba(15,23,42,.55);color:var(--text);
-      cursor:pointer;transition:.2s ease
-    }
-    .btn:hover{transform:translateY(-1px);border-color:rgba(96,165,250,.45)}
-    .btn.primary{background:linear-gradient(135deg, rgba(37,99,235,1), rgba(96,165,250,1));border:none;box-shadow:0 16px 40px rgba(37,99,235,.35)}
-    .btn.primary:hover{transform:translateY(-2px)}
-    .hidden{display:none}
-
-    .why-cost{
-      margin-top:14px;
-      padding:14px 16px;
-      border-radius:12px;
-      background: rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      font-size:13px;
-      line-height:1.6;
-    }
-    .why-cost h3{
-      font-size:14px;
-      margin-bottom:6px;
-      color:#9ec5ff;
-    }
-
-    .review{display:grid;gap:10px;margin-top:10px}
-    .kv{display:flex;justify-content:space-between;gap:12px;border:1px solid rgba(148,163,184,.14);background:rgba(2,6,23,.35);padding:12px;border-radius:16px}
-    .kv b{color:#c7d2fe}
-    .kv span{color:var(--muted2);text-align:right;white-space:pre-wrap}
-    .fine{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.7}
-    footer{margin-top:26px;color:var(--muted);font-size:12px}
-
-    /* ✅ 결제 박스 */
-    .pay-box{
-      margin-top:12px;
-      padding:14px 16px;
-      border-radius:14px;
+    .wrap{max-width:720px;margin:0 auto;padding:64px 18px}
+    .card{
+      background:rgba(15,23,42,.72);
       border:1px solid rgba(148,163,184,.16);
-      background: rgba(255,255,255,0.04);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:var(--shadow);
     }
-    .pay-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:10px;
+    .badge{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(59,130,246,.15);
+      border:1px solid rgba(59,130,246,.35);
+      color:#93c5fd;
+      font-weight:900;
+      font-size:12px;
+      margin-bottom:14px;
     }
-    .pay-price{font-weight:900;font-size:16px}
-
-    @media (max-width: 920px){
-      .grid{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
+    h1{font-size:22px;margin:0 0 10px}
+    p{margin:0;color:rgba(148,163,184,.95);line-height:1.65}
+    .actions{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+    .btn{
+      display:flex;align-items:center;justify-content:center;
+      width:100%;height:44px;border-radius:12px;font-weight:900;
+      text-decoration:none;border:1px solid rgba(148,163,184,.22);
+      background:rgba(15,23,42,.55);color:var(--text);
     }
+    .btn.primary{
+      border:none;
+      background:linear-gradient(135deg, rgba(37,99,235,1), rgba(96,165,250,1));
+      box-shadow:0 16px 40px rgba(37,99,235,.35);
+    }
+    footer{margin-top:18px;color:var(--muted);font-size:12px}
   </style>
 </head>
-
 <body>
-  <div class="wrap">
-    <div class="top">
-      <a class="brand" href="index.html">
-        <img src="white-logo.png" alt="빌라프라이스 로고"><b>빌라프라이스</b>
-      </a>
-      <a class="btn" href="index.html#price">다른 상품 보기</a>
-    </div>
+  <main class="wrap">
+    <section class="card">
+      <div class="badge">신청 완료</div>
+      <h1>접수가 완료되었습니다.</h1>
+      <p>
+        영업일 기준 3~4일 내 리포트 전달드리겠습니다.<br/>
+        잠시만 기다려주세요.
+      </p>
 
-    <div class="grid">
-      <div class="left-col">
-        <div class="card">
-          <div class="pill">다세대주택 · 다가구 · 빌라 · 도시형 생활주택</div>
-          <h1>빌라/비아파트 리포트 (10만원)</h1>
-          <p class="muted">비교 데이터 + 현장 요인 + 경쟁 매물을 조합해, 팔릴 수 있는 판매 가격 방향을 제안합니다.</p>
-
-          <ul class="list">
-            <li>비교 데이터 팩(유사 매물/거래사례)</li>
-            <li>현장 요인 정리 + 경쟁 매물 흐름</li>
-            <li>판매 가격 제안(상황/시장 흐름 반영)</li>
-            <li>PDF 리포트 이메일 전달(영업일 3~4일)</li>
-          </ul>
-
-          <div class="fine">
-            • 제출 후 <b>작성 내용 확인</b> 화면에서 최종 확인 후 결제합니다.<br>
-            • 제작 완료 후 영업일 기준 3~4일 내 이메일로 PDF 리포트를 전달합니다.
-          </div>
-        </div>
-
-        <div class="card why-cost">
-          <h3>비아파트 분석 비용이 다른 이유</h3>
-          <p>
-            비아파트 시장은 동일 평형·동일 조건의 비교군이 제한적이며,
-            개별 물건별 변수와 개발 이슈의 영향도가 높습니다.
-          </p>
-          <p>
-            단순 실거래가 비교를 넘어 <b>재개발 가능성, 입지 변화, 경쟁 매물 흐름</b>까지
-            종합적으로 분석해야 하므로 리서치 범위와 데이터 해석 과정이 확대됩니다.
-          </p>
-          <p>
-            이에 따라 비아파트 리포트는 아파트 리포트와 차별화된 분석 비용이 적용됩니다.
-          </p>
-        </div>
+      <div class="actions">
+        <a class="btn primary" href="index.html">홈으로</a>
+        <a class="btn" href="index.html#contact">문의하기</a>
       </div>
 
-      <div class="card form-card">
-        <div class="stepbar" aria-label="단계">
-          <div class="dot on" id="dot1"></div>
-          <div class="dot" id="dot2"></div>
-          <div class="dot" id="dot3"></div>
-        </div>
-
-        <!-- ✅ STEP 1 -->
-        <div id="step1">
-          <h1 style="margin-top:14px;font-size:20px">1) 접수(정보 입력)</h1>
-
-          <form id="applyForm"
-            name="villa-apply"
-            method="POST"
-            data-netlify="true"
-            action="/"
-            onsubmit="goReview(event);">
-
-            <input type="hidden" name="form-name" value="villa-apply">
-            <input type="hidden" name="product" value="빌라/비아파트 리포트 (10만원)">
-
-            <label>이름</label>
-            <input id="name" name="name" required placeholder="이름">
-
-            <div class="row">
-              <div>
-                <label>휴대폰 번호</label>
-                <input
-                  id="phone"
-                  type="tel"
-                  name="phone"
-                  placeholder="010-0000-0000"
-                  pattern="^\d{3}-\d{4}-\d{4}$"
-                  required
-                />
-              </div>
-              <div>
-                <label>이메일</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="example@email.com"
-                />
-              </div>
-            </div>
-
-            <label>매물 주소(필수)</label>
-            <input id="address" name="address" required placeholder="예) 서울 성북구 ○○로 00, ○동 ○호">
-            <div class="muted" style="margin-top:8px">
-              건축물대장 열람을 위해, 동·호수를 기재하지 않으면 매물 분석이 불가능합니다.
-            </div>
-
-            <div class="row">
-              <div>
-                <label>방 개수</label>
-                <select id="rooms" name="rooms" required>
-                  <option value="">선택</option>
-                  <option>1</option><option>2</option><option>3</option><option>4+</option>
-                </select>
-              </div>
-              <div>
-                <label>화장실 개수</label>
-                <select id="baths" name="baths" required>
-                  <option value="">선택</option>
-                  <option>1</option><option>2</option><option>3+</option>
-                </select>
-              </div>
-            </div>
-
-            <label>엘리베이터</label>
-            <select id="elevator" name="elevator" required>
-              <option value="">선택</option>
-              <option>있음</option>
-              <option>없음</option>
-              <option>모름</option>
-            </select>
-
-            <label>상황/조건(선택)</label>
-            <textarea id="note" name="note" placeholder="예) 급매, 잔금 일정, 임차인 여부, 원하는 매도 시점 등"></textarea>
-
-            <label style="margin-top:14px">
-              <input id="agree" name="agree" type="checkbox" required style="width:auto;vertical-align:middle;margin-right:8px">
-              (필수) 개인정보 수집·이용에 동의합니다. (<a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>)
-            </label>
-
-            <div class="btns">
-              <button class="btn primary" type="submit">신청 제출하기</button>
-            </div>
-
-            <div class="fine">
-              • 신청 정보는 제출 즉시 저장되며, 작성 내용 확인 후 결제를 진행합니다.
-            </div>
-          </form>
-        </div>
-
-        <!-- ✅ STEP 2 -->
-        <div id="step2" class="hidden">
-          <h1 style="margin-top:14px;font-size:20px">2) 작성 내용 확인</h1>
-          <div class="review" id="reviewBox"></div>
-
-          <div class="pay-box">
-            <div class="pay-head">
-              <div>
-                <div style="font-weight:900">결제</div>
-                <div class="muted" style="margin-top:4px">결제 완료 후 제작이 시작됩니다.</div>
-              </div>
-              <div class="pay-price">10만원</div>
-            </div>
-
-            <!-- ✅ 여기 링크만 너 토스 링크로 교체하면 됨 -->
-            <a class="btn primary" id="payBtn"
-               href="https://pay.toss.im/빌라결제링크"
-               target="_blank" rel="noopener">토스로 결제하기</a>
-
-            <!-- ✅ 결제 성공 자동 판별은 링크만으로는 불가해서, 일단 확인 버튼을 둠 -->
-            <div class="btns" style="margin-top:10px">
-              <button class="btn" onclick="backEdit()">수정하기</button>
-              <button class="btn" onclick="markPaid()">결제 완료했어요</button>
-            </div>
-
-            <div class="fine">
-              결제 완료가 확인되면 영업일 기준 3~4일 내 리포트를 이메일로 전달드립니다.
-            </div>
-          </div>
-        </div>
-
-        <!-- ✅ STEP 3 -->
-        <div id="step3" class="hidden">
-          <h1 style="margin-top:14px;font-size:20px">3) 결제 완료</h1>
-
-          <div class="pay-box">
-            <div style="font-weight:900;margin-bottom:6px">접수가 완료되었습니다.</div>
-            <div class="muted">
-              영업일 기준 3~4일 내, 기재해주신 이메일로 PDF 리포트를 전달드립니다.
-            </div>
-          </div>
-
-          <div class="btns">
-            <a class="btn primary" href="index.html">홈으로</a>
-            <button class="btn" onclick="backToStep2()">결제 정보 다시 보기</button>
-          </div>
-        </div>
-
-        <footer>
-          <div>© 2026 VillaPrice. All rights reserved.</div>
-        </footer>
-      </div>
-    </div>
-  </div>
-
-<script>
-  // ✅ 점등 로직: 1단계면 dot1만, 2단계면 dot1+dot2, 3단계면 전부
-  function setDots(n){
-    document.getElementById('dot1').classList.toggle('on', n>=1);
-    document.getElementById('dot2').classList.toggle('on', n>=2);
-    document.getElementById('dot3').classList.toggle('on', n>=3);
-  }
-
-  function showStep(n){
-    document.getElementById('step1').classList.toggle('hidden', n!==1);
-    document.getElementById('step2').classList.toggle('hidden', n!==2);
-    document.getElementById('step3').classList.toggle('hidden', n!==3);
-    setDots(n);
-  }
-
-  // ✅ STEP1 제출 → Netlify 저장(POST) → STEP2 리뷰
-  function goReview(e){
-    e.preventDefault();
-
-    const addr = document.getElementById('address').value.trim();
-    if(addr.length < 8){
-      alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
-      return;
-    }
-    if(!document.getElementById('agree').checked){
-      alert('개인정보 수집·이용 동의가 필요합니다.');
-      return;
-    }
-
-    const form = document.getElementById('applyForm');
-    const formData = new FormData(form);
-
-    // ✅ Netlify에 제출 저장
-    fetch("/", { method: "POST", body: formData })
-      .then(() => {
-        // 저장 성공 후 리뷰 렌더
-        renderReview(formData);
-        showStep(2);
-      })
-      .catch(() => {
-        alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
-      });
-  }
-
-  function renderReview(fd){
-    const data = {
-      "상품": fd.get("product") || "빌라/비아파트",
-      "이름": fd.get("name") || "",
-      "휴대폰": fd.get("phone") || "",
-      "이메일": fd.get("email") || "",
-      "매물 주소": fd.get("address") || "",
-      "방 개수": fd.get("rooms") || "",
-      "화장실 개수": fd.get("baths") || "",
-      "엘리베이터": fd.get("elevator") || "",
-      "상황/조건": (fd.get("note") && String(fd.get("note")).trim()) ? fd.get("note") : "—"
-    };
-
-    const box = document.getElementById('reviewBox');
-    box.innerHTML = '';
-    Object.keys(data).forEach(k=>{
-      const row = document.createElement('div');
-      row.className = 'kv';
-      row.innerHTML = '<b>' + k + '</b><span>' + escapeHtml(data[k]) + '</span>';
-      box.appendChild(row);
-    });
-  }
-
-  function backEdit(){
-    showStep(1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // ✅ 결제 완료 안내 단계(링크 결제는 자동확인 불가 → 일단 버튼으로 단계 전환)
-  function markPaid(){
-    showStep(3);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function backToStep2(){
-    showStep(2);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, function(m){
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
-    });
-  }
-
-  // 초기 상태
-  document.addEventListener('DOMContentLoaded', () => showStep(1));
-</script>
+      <footer>© 2026 VillaPrice. All rights reserved.</footer>
+    </section>
+  </main>
 </body>
 </html>
