@@ -345,7 +345,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="kv" style="margin-top:10px">
               <b>입금 계좌</b>
               <span>
-                신한은행 110-531-063767<br>
+                신한은행 <br>
                 예금주: 이혜리(래퍼런스)
               </span>
             </div>
@@ -419,7 +419,7 @@ for (const [k, v] of formData.entries()) {
   params.append(k, v);
 }
 
-fetch("https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec", {
+fetch("여기에 구글 app스크립트 링크 넣고", {
   method: "POST",
   headers: {
     "Content-Type": "application/x-www-form-urlencoded"
@@ -476,7 +476,7 @@ fetch("https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzY
   // ✅ 계좌 복사 (QR 없이)
   function copyAccount(){
     // TODO: 아래 계좌정보를 실제 값으로 수정하세요.
-    const acct = "신한은행 110-531-063767 (예금주: 이혜리(래퍼런스))";
+    const acct = "신한은행  (예금주: (래퍼런스))";
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(acct)
         .then(() => alert("계좌정보가 복사되었습니다."))
@@ -541,7 +541,7 @@ fetch("https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzY
 <!-- ChannelTalk: boot (ONLY ONCE) -->
 <script>
 ChannelIO('boot', {
-  pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
+  pluginKey: ''
 });
 </script>
 
