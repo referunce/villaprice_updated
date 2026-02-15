@@ -35,7 +35,7 @@
     .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
     .brand img{height:38px}
-    .brand b{color:var(--text)} /* 혹시 색 꼬이면 여기서 고정 */
+    .brand b{color:var(--text)}
     .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:#dbeafe;background:rgba(2,6,23,.35);font-weight:800;font-size:13px}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 
@@ -74,7 +74,7 @@
     .hidden{display:none}
 
     .why-cost{
-      margin-top:0; /* left-col gap으로 충분 */
+      margin-top:0;
       padding:14px 16px;
       border-radius:12px;
       background: rgba(255,255,255,0.04);
@@ -95,7 +95,7 @@
     .fine{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.7}
     footer{margin-top:26px;color:var(--muted);font-size:12px}
 
-    /* ✅ 결제 박스 */
+    /* ✅ 입금 박스 */
     .pay-box{
       margin-top:12px;
       padding:14px 16px;
@@ -112,7 +112,7 @@
     }
     .pay-price{font-weight:900;font-size:16px}
 
-    /* ✅ 결제 버튼 스택(위/아래) */
+    /* ✅ 버튼 스택(위/아래) */
     .pay-actions{
       display:flex;
       flex-direction:column;
@@ -139,11 +139,11 @@
     </div>
 
     <div class="grid">
-      <!-- ✅ LEFT COLUMN (여기 안에 카드 3개가 들어가야 함) -->
+      <!-- ✅ LEFT COLUMN -->
       <div class="left-col">
         <div class="card">
           <div class="pill">다세대주택 · 다가구 · 빌라 · 도시형 생활주택</div>
-          <h1>빌라/비아파트 리포트 (10만원)</h1>
+          <h1>빌라/비아파트 리포트 (10만원 · 부가세 포함)</h1>
           <p class="muted">비교 데이터 + 현장 요인 + 경쟁 매물을 조합해, 팔릴 수 있는 판매 가격 방향을 제안합니다.</p>
 
           <ul class="list">
@@ -154,8 +154,8 @@
           </ul>
 
           <div class="fine">
-            • 제출 후 <b>작성 내용 확인</b> 화면에서 최종 확인 후 결제합니다.<br>
-            • 결제 완료 시 <b>신청 완료 페이지</b>로 자동 이동합니다.
+            • 제출 후 <b>작성 내용 확인</b> 화면에서 최종 확인 후 <b>입금 안내</b>가 표시됩니다.<br>
+            • <b>입금 완료</b> 시 제작이 시작되며, 완료 버튼을 누르면 <b>신청 완료 페이지</b>로 이동합니다.
           </div>
         </div>
 
@@ -163,21 +163,21 @@
           <h3>빌라 매도 가격 분석이 필요한 이유</h3>
           <p>
             빌라·다가구·도시형 생활주택 시장은 동일 평형 비교 데이터가 제한적이며,
-    개별 매물의 입지, 개발 이슈, 경쟁 매물 흐름에 따라 가격 편차가 크게 발생합니다.
-  </p>
+            개별 매물의 입지, 개발 이슈, 경쟁 매물 흐름에 따라 가격 편차가 크게 발생합니다.
+          </p>
 
-  <p>
-    단순 실거래가 비교를 넘어 <b>재개발 가능성, 입지 변화, 경쟁 매물 흐름</b>까지
-    종합적으로 분석해야 실제로 팔릴 수 있는 가격 방향을 잡을 수 있습니다.
-  </p>
+          <p>
+            단순 실거래가 비교를 넘어 <b>재개발 가능성, 입지 변화, 경쟁 매물 흐름</b>까지
+            종합적으로 분석해야 실제로 팔릴 수 있는 가격 방향을 잡을 수 있습니다.
+          </p>
 
-  <p>
-    이러한 이유로 빌라프라이스 리포트는 일반 시세 조회와 달리
-    리서치 범위와 데이터 해석 과정이 확장되며,
-    비아파트 리포트는 아파트 리포트와 차별화된 분석 구조로 제공됩니다.
-  </p>
+          <p>
+            이러한 이유로 빌라프라이스 리포트는 일반 시세 조회와 달리
+            리서치 범위와 데이터 해석 과정이 확장되며,
+            비아파트 리포트는 아파트 리포트와 차별화된 분석 구조로 제공됩니다.
+          </p>
+        </div>
       </div>
-     </div>  
 
       <!-- ✅ RIGHT COLUMN -->
       <div class="card form-card">
@@ -198,7 +198,7 @@
             onsubmit="goReview(event);">
 
             <input type="hidden" name="form-name" value="villa-apply">
-            <input type="hidden" name="product" value="빌라/비아파트 리포트 (10만원)">
+            <input type="hidden" name="product" value="빌라/비아파트 리포트 (10만원 · 부가세 포함)">
 
             <label>이름</label>
             <input id="name" name="name" required placeholder="이름">
@@ -211,7 +211,7 @@
                   type="tel"
                   name="phone"
                   placeholder="010-0000-0000"
-                  pattern="^01[016789]-?\d{3,4}-?\d{4}$"
+                  pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
                   required
                 />
               </div>
@@ -225,6 +225,22 @@
                   placeholder="example@email.com"
                 />
               </div>
+            </div>
+
+            <!-- ✅ 추가: 입금자명 / 현금영수증 -->
+            <label>입금자명(필수)</label>
+            <input id="payer" name="payer" required placeholder="입금하실 분 성함(신청자와 다르면 꼭 입력)">
+
+            <label>현금영수증 발급용 휴대폰 번호(선택)</label>
+            <input
+              id="cash_phone"
+              name="cash_phone"
+              type="tel"
+              placeholder="010-0000-0000"
+              pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
+            />
+            <div class="muted" style="margin-top:8px">
+              현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다. (미기재 시 발급 불가)
             </div>
 
             <label>매물 주소(필수)</label>
@@ -271,7 +287,7 @@
             </div>
 
             <div class="fine">
-              • 신청 정보는 제출 즉시 저장되며, 작성 내용 확인 후 결제를 진행합니다.
+              • 신청 정보는 제출 즉시 저장되며, 작성 내용 확인 후 입금을 진행합니다.
             </div>
           </form>
         </div>
@@ -281,25 +297,44 @@
           <h1 style="margin-top:14px;font-size:20px">2) 작성 내용 확인</h1>
           <div class="review" id="reviewBox"></div>
 
+          <!-- ✅ 입금 안내 박스 -->
           <div class="pay-box">
             <div class="pay-head">
               <div>
-                <div style="font-weight:900">결제</div>
-                <div class="muted" style="margin-top:4px">결제 완료 후 제작이 시작됩니다.</div>
+                <div style="font-weight:900">입금 안내</div>
+                <div class="muted" style="margin-top:4px">
+                  입금 완료 시 제작이 시작됩니다. (영업일 3~4일 내 PDF 이메일 발송)
+                </div>
               </div>
-              <div class="pay-price">10만원</div>
+              <div class="pay-price">
+                10만원 <span class="muted" style="font-weight:700;font-size:12px">(부가세 포함)</span>
+              </div>
+            </div>
+
+            <div class="kv" style="margin-top:10px">
+              <b>입금 계좌</b>
+              <span>
+                신한은행 000-000-000000<br>
+                예금주: 래퍼런스
+              </span>
             </div>
 
             <div class="pay-actions">
               <button class="btn" type="button" onclick="backEdit()">수정하기</button>
 
-              <a class="btn primary" id="payBtn"
-                 href="https://pay.toss.im/빌라결제링크"
-                 rel="noopener">토스로 결제하기</a>
+              <button class="btn" type="button" onclick="copyAccount()">
+                계좌번호 복사하기
+              </button>
+
+              <button class="btn primary" type="button" onclick="goSuccess()">
+                입금 완료했어요
+              </button>
             </div>
 
             <div class="fine">
-              결제가 완료되면 <b>신청 완료 페이지</b>로 자동 이동합니다.<br>
+              • 입금자명이 신청자와 다르면, 입력한 <b>입금자명</b> 기준으로 매칭됩니다.<br>
+              • 현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다. (미기재 시 발급 불가)<br>
+              • 입금 완료 시 제작이 시작되며, 단순 변심에 의한 환불은 어려울 수 있습니다.
             </div>
           </div>
         </div>
@@ -336,6 +371,12 @@
       return;
     }
 
+    const payer = document.getElementById('payer').value.trim();
+    if(payer.length < 1){
+      alert('입금자명을 입력해 주세요.');
+      return;
+    }
+
     const form = document.getElementById('applyForm');
     const formData = new FormData(form);
 
@@ -356,6 +397,8 @@
       "이름": fd.get("name") || "",
       "휴대폰": fd.get("phone") || "",
       "이메일": fd.get("email") || "",
+      "입금자명": fd.get("payer") || "",
+      "현금영수증 번호": (fd.get("cash_phone") && String(fd.get("cash_phone")).trim()) ? fd.get("cash_phone") : "—",
       "매물 주소": fd.get("address") || "",
       "방 개수": fd.get("rooms") || "",
       "화장실 개수": fd.get("baths") || "",
@@ -384,9 +427,43 @@
     });
   }
 
+  // ✅ 계좌 복사 (QR 없이)
+  function copyAccount(){
+    // TODO: 아래 계좌정보를 실제 값으로 수정하세요.
+    const acct = "신한은행 000-000-000000 (예금주: 래퍼런스)";
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(acct)
+        .then(() => alert("계좌정보가 복사되었습니다."))
+        .catch(() => fallbackCopy(acct));
+    } else {
+      fallbackCopy(acct);
+    }
+  }
+
+  function fallbackCopy(text){
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+      alert("계좌정보가 복사되었습니다.");
+    } catch (e) {
+      alert("복사에 실패했어요. 계좌번호를 직접 복사해주세요.");
+    }
+    document.body.removeChild(ta);
+  }
+
+  // ✅ 기존에 만든 신청완료 페이지로 이동
+  function goSuccess(){
+    window.location.href = "success.html";
+  }
+
   document.addEventListener('DOMContentLoaded', () => showStep(1));
 </script>
-  
+
 <!-- ChannelTalk: loader (ONLY ONCE) -->
 <script>
 (function() {
@@ -418,8 +495,9 @@
 <!-- ChannelTalk: boot (ONLY ONCE) -->
 <script>
 ChannelIO('boot', {
-  pluginKey: ''
+  pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
 });
 </script>
 </body>
 </html>
+
