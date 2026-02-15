@@ -1,15 +1,15 @@
-<!-- villa.html (최종 수정본 / 통째로 덮어쓰기) -->
+<!-- villa.html (최종본 / 통째로 덮어쓰기) -->
 <!doctype html>
 <html lang="ko">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WJB73KCL');</script>
-<!-- End Google Tag Manager -->
-  
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WJB73KCL');</script>
+  <!-- End Google Tag Manager -->
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -47,7 +47,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pill{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(148,163,184,.2);border-radius:999px;color:#dbeafe;background:rgba(2,6,23,.35);font-weight:800;font-size:13px}
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
 
-    /* ✅ 왼쪽 카드 묶음 */
     .left-col{display:flex;flex-direction:column;gap:16px}
 
     .card{background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -57,7 +56,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .list{margin:12px 0 0;padding-left:18px;color:var(--muted2)}
     .list li{margin:8px 0}
 
-    /* ✅ 2단계만 사용 */
     .stepbar{display:flex;gap:8px;margin-top:14px}
     .dot{flex:1;height:8px;border-radius:999px;background:rgba(148,163,184,.18)}
     .dot.on{background:linear-gradient(90deg, rgba(37,99,235,1), rgba(96,165,250,1))}
@@ -103,7 +101,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .fine{margin-top:14px;color:var(--muted);font-size:12px;line-height:1.7}
     footer{margin-top:26px;color:var(--muted);font-size:12px}
 
-    /* ✅ 입금 박스 */
     .pay-box{
       margin-top:12px;
       padding:14px 16px;
@@ -111,16 +108,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border:1px solid rgba(148,163,184,.16);
       background: rgba(255,255,255,0.04);
     }
+
     .pay-head{
       display:flex;
       justify-content:space-between;
-      align-items:flex-start;
+      align-items:center;
       gap:12px;
       margin-bottom:10px;
     }
-    .pay-price{font-weight:900;font-size:16px}
 
-    /* ✅ 버튼 스택(위/아래) */
+    .pay-price{
+      font-weight:900;
+      font-size:16px;
+      text-align:right;
+      white-space:nowrap;
+      flex:0 0 auto;
+    }
+
+    .pay-sub{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+      margin-top:4px;
+    }
+
     .pay-actions{
       display:flex;
       flex-direction:column;
@@ -133,38 +144,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .grid{grid-template-columns:1fr}
       .row{grid-template-columns:1fr}
     }
-        .pay-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;          /* ✅ 위로 뜨지 않게 */
-      gap:12px;
-      margin-bottom:10px;
-    }
-    
-    .pay-price{
-      font-weight:900;
-      font-size:16px;
-      text-align:right;
-      white-space:nowrap;          /* ✅ 가격은 한 줄 고정 */
-      flex:0 0 auto;               /* ✅ 줄어들지 않게 */
-    }
-    
-    .pay-sub{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.4;
-      margin-top:4px;
-    }
-
   </style>
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJB73KCL"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WJB73KCL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="wrap">
     <div class="top">
       <a class="brand" href="index.html">
@@ -175,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="grid">
-      <!-- ✅ LEFT COLUMN -->
+      <!-- LEFT COLUMN -->
       <div class="left-col">
         <div class="card">
           <div class="pill">다세대주택 · 다가구 · 빌라 · 도시형 생활주택</div>
@@ -215,20 +203,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <!-- ✅ RIGHT COLUMN -->
+      <!-- RIGHT COLUMN -->
       <div class="card form-card">
         <div class="stepbar" aria-label="단계">
           <div class="dot on" id="dot1"></div>
           <div class="dot" id="dot2"></div>
         </div>
 
-        <!-- ✅ STEP 1 -->
+        <!-- STEP 1 -->
         <div id="step1">
           <h1 style="margin-top:14px;font-size:20px">1) 접수(정보 입력)</h1>
 
-    <form id="applyForm" name="villa-apply" method="POST" data-netlify="true" action="/success.html" novalidate>
-
-
+          <!-- ✅ 제출 시: (1) Netlify Forms 저장 → (2) step2 보여주기 -->
+          <form id="applyForm" name="villa-apply" method="POST" data-netlify="true" action="/" onsubmit="return goReview(event)" novalidate>
             <input type="hidden" name="form-name" value="villa-apply">
             <input type="hidden" name="product" value="빌라/비아파트 리포트 (10만원 · 부가세 포함)">
 
@@ -259,22 +246,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-            <!-- ✅ 추가: 입금자명 / 현금영수증 -->
             <label>입금자명(필수)</label>
             <input id="payer" name="payer" required placeholder="입금하실 분 성함(신청자와 다르면 꼭 입력)">
 
-                <label>현금영수증 발급용 휴대폰 번호(발급 요청 시 입력)</label>
-          <input
-            id="cash_phone"
-            name="cash_phone"
-            type="tel"
-            placeholder="010-0000-0000"
-            pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
-          />
-          <div class="muted" style="margin-top:8px">
-            현금영수증 발급을 원하시면 입력해 주세요. <br>
-            현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다.
-          </div>
+            <label>현금영수증 발급용 휴대폰 번호(발급 요청 시 입력)</label>
+            <input
+              id="cash_phone"
+              name="cash_phone"
+              type="tel"
+              placeholder="010-0000-0000"
+              pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
+            />
+            <div class="muted" style="margin-top:8px">
+              현금영수증 발급을 원하시면 입력해 주세요. <br>
+              현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다.
+            </div>
 
             <label>매물 주소(필수)</label>
             <input id="address" name="address" required placeholder="예) 서울 성북구 ○○로 00, ○동 ○호">
@@ -325,41 +311,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </form>
         </div>
 
-        <!-- ✅ STEP 2 -->
+        <!-- STEP 2 -->
         <div id="step2" class="hidden">
           <h1 style="margin-top:14px;font-size:20px">2) 작성 내용 확인</h1>
           <div class="review" id="reviewBox"></div>
 
-          <!-- ✅ 입금 안내 박스 -->
           <div class="pay-box">
-         <div class="pay-head">
-          <div>
-            <div style="font-weight:900">입금 안내</div>
-            <div class="pay-sub">입금 확인 후 제작 시작됩니다.<br>(영업일 3~4일 내 PDF 이메일 발송)</div>
-          </div>
-          <div class="pay-price">10만원 <span class="muted" style="font-weight:700;font-size:12px">(부가세 포함)</span></div>
-        </div>
-
+            <div class="pay-head">
+              <div>
+                <div style="font-weight:900">입금 안내</div>
+                <div class="pay-sub">입금 확인 후 제작 시작됩니다.<br>(영업일 3~4일 내 PDF 이메일 발송)</div>
+              </div>
+              <div class="pay-price">10만원 <span class="muted" style="font-weight:700;font-size:12px">(부가세 포함)</span></div>
             </div>
 
             <div class="kv" style="margin-top:10px">
               <b>입금 계좌</b>
               <span>
-                신한은행 <br>
+                신한은행<br>
+                계좌번호: 110-531-063767<br>
                 예금주: 이혜리(래퍼런스)
               </span>
             </div>
 
             <div class="pay-actions">
               <button class="btn" type="button" onclick="backEdit()">수정하기</button>
-
-              <button class="btn" type="button" onclick="copyAccount()">
-                계좌번호 복사하기
-              </button>
-
-              <button class="btn primary" type="button" onclick="goSuccess()">
-                입금 완료했어요
-              </button>
+              <button class="btn" type="button" onclick="copyAccount()">계좌번호 복사하기</button>
+              <button class="btn primary" type="button" onclick="goSuccess()">입금 완료했어요</button>
             </div>
 
             <div class="fine">
@@ -377,185 +355,173 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-<script>
-  function setDots(n){
-    document.getElementById('dot1').classList.toggle('on', n>=1);
-    document.getElementById('dot2').classList.toggle('on', n>=2);
-  }
-
-  function showStep(n){
-    document.getElementById('step1').classList.toggle('hidden', n!==1);
-    document.getElementById('step2').classList.toggle('hidden', n!==2);
-    setDots(n);
-  }
-
-  function goReview(e){
-    e.preventDefault();
-
-    const addr = document.getElementById('address').value.trim();
-    if(addr.length < 8){
-      alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
-      return;
-    }
-    if(!document.getElementById('agree').checked){
-      alert('개인정보 수집·이용 동의가 필요합니다.');
-      return;
+  <script>
+    // (선택) 스프레드시트로도 보내려면 여기에 Apps Script 웹앱 URL 넣기
+    // 비워두면 Netlify Forms만 저장됨
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec"
+    function setDots(n){
+      document.getElementById('dot1').classList.toggle('on', n>=1);
+      document.getElementById('dot2').classList.toggle('on', n>=2);
     }
 
-    const payer = document.getElementById('payer').value.trim();
-    if(payer.length < 1){
-      alert('입금자명을 입력해 주세요.');
-      return;
+    function showStep(n){
+      document.getElementById('step1').classList.toggle('hidden', n!==1);
+      document.getElementById('step2').classList.toggle('hidden', n!==2);
+      setDots(n);
     }
 
-    const form = document.getElementById('applyForm');
-    const formData = new FormData(form);
+    async function goReview(e){
+      e.preventDefault();
 
-const formData = new FormData(form);
+      const addr = document.getElementById('address').value.trim();
+      if(addr.length < 8){
+        alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
+        return false;
+      }
+      if(!document.getElementById('agree').checked){
+        alert('개인정보 수집·이용 동의가 필요합니다.');
+        return false;
+      }
+      const payer = document.getElementById('payer').value.trim();
+      if(payer.length < 1){
+        alert('입금자명을 입력해 주세요.');
+        return false;
+      }
 
-// 🔥 Netlify Forms 전용 인코딩 (이게 핵심)
-const params = new URLSearchParams();
-for (const [k, v] of formData.entries()) {
-  params.append(k, v);
-}
+      const form = document.getElementById('applyForm');
+      const fd = new FormData(form);
 
-fetch("여기에 구글 app스크립트 링크 넣고", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
-  },
-  body: params.toString()
-})
-.then(() => {
-  renderReview(formData);
-  showStep(2);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-})
-.catch(() => {
-  alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
-});
+      // Netlify Forms 안정 제출 (x-www-form-urlencoded)
+      const params = new URLSearchParams();
+      for (const [k, v] of fd.entries()) params.append(k, v);
 
-  }
+      try {
+        const netlifyRes = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params.toString()
+        });
+        if(!netlifyRes.ok) throw new Error("Netlify submit failed: " + netlifyRes.status);
 
-  function renderReview(fd){
-    const data = {
-      "상품": fd.get("product") || "빌라/비아파트",
-      "이름": fd.get("name") || "",
-      "휴대폰": fd.get("phone") || "",
-      "이메일": fd.get("email") || "",
-      "입금자명": fd.get("payer") || "",
-      "현금영수증 번호": (fd.get("cash_phone") && String(fd.get("cash_phone")).trim()) ? fd.get("cash_phone") : "—",
-      "매물 주소": fd.get("address") || "",
-      "방 개수": fd.get("rooms") || "",
-      "화장실 개수": fd.get("baths") || "",
-      "엘리베이터": fd.get("elevator") || "",
-      "상황/조건": (fd.get("note") && String(fd.get("note")).trim()) ? fd.get("note") : "—"
-    };
+        // (선택) Google Apps Script로도 저장
+        if (GAS_URL && GAS_URL.startsWith("https://script.google.com/")) {
+          await fetch(GAS_URL, { method: "POST", body: fd });
+        }
 
-    const box = document.getElementById('reviewBox');
-    box.innerHTML = '';
-    Object.keys(data).forEach(k=>{
-      const row = document.createElement('div');
-      row.className = 'kv';
-      row.innerHTML = '<b>' + k + '</b><span>' + escapeHtml(data[k]) + '</span>';
-      box.appendChild(row);
-    });
-  }
+        renderReview(fd);
+        showStep(2);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return false;
 
-  function backEdit(){
-    showStep(1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function escapeHtml(s){
-    return String(s).replace(/[&<>"']/g, function(m){
-      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
-    });
-  }
-
-  // ✅ 계좌 복사 (QR 없이)
-  function copyAccount(){
-    // TODO: 아래 계좌정보를 실제 값으로 수정하세요.
-    const acct = "신한은행  (예금주: (래퍼런스))";
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(acct)
-        .then(() => alert("계좌정보가 복사되었습니다."))
-        .catch(() => fallbackCopy(acct));
-    } else {
-      fallbackCopy(acct);
+      } catch (err) {
+        console.error(err);
+        alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
+        return false;
+      }
     }
-  }
 
-  function fallbackCopy(text){
-    const ta = document.createElement("textarea");
-    ta.value = text;
-    ta.style.position = "fixed";
-    ta.style.left = "-9999px";
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand("copy");
-      alert("계좌정보가 복사되었습니다.");
-    } catch (e) {
-      alert("복사에 실패했어요. 계좌번호를 직접 복사해주세요.");
+    function renderReview(fd){
+      const data = {
+        "상품": fd.get("product") || "빌라/비아파트",
+        "이름": fd.get("name") || "",
+        "휴대폰": fd.get("phone") || "",
+        "이메일": fd.get("email") || "",
+        "입금자명": fd.get("payer") || "",
+        "현금영수증 번호": (fd.get("cash_phone") && String(fd.get("cash_phone")).trim()) ? fd.get("cash_phone") : "—",
+        "매물 주소": fd.get("address") || "",
+        "방 개수": fd.get("rooms") || "",
+        "화장실 개수": fd.get("baths") || "",
+        "엘리베이터": fd.get("elevator") || "",
+        "상황/조건": (fd.get("note") && String(fd.get("note")).trim()) ? fd.get("note") : "—"
+      };
+
+      const box = document.getElementById('reviewBox');
+      box.innerHTML = '';
+      Object.keys(data).forEach(k=>{
+        const row = document.createElement('div');
+        row.className = 'kv';
+        row.innerHTML = '<b>' + k + '</b><span>' + escapeHtml(data[k]) + '</span>';
+        box.appendChild(row);
+      });
     }
-    document.body.removeChild(ta);
-  }
 
-  // ✅ 기존에 만든 신청완료 페이지로 이동
-  function goSuccess(){
-    window.location.href = "success.html";
-  }
+    function backEdit(){
+      showStep(1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-  document.addEventListener('DOMContentLoaded', () => showStep(1));
-</script>
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, function(m){
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]);
+      });
+    }
 
-<!-- ChannelTalk: loader (ONLY ONCE) -->
-<script>
-(function() {
-  var w = window;
-  if (w.ChannelIO) {
-    return;
-  }
-  var ch = function() { ch.c(arguments); };
-  ch.q = [];
-  ch.c = function(args) { ch.q.push(args); };
-  w.ChannelIO = ch;
+    function copyAccount(){
+      const acct = "신한은행 110-531-063767 (예금주: 이혜리(래퍼런스))";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(acct)
+          .then(() => alert("계좌정보가 복사되었습니다."))
+          .catch(() => fallbackCopy(acct));
+      } else {
+        fallbackCopy(acct);
+      }
+    }
 
-  function l() {
-    if (w.ChannelIOInitialized) return;
-    w.ChannelIOInitialized = true;
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-  }
+    function fallbackCopy(text){
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+        alert("계좌정보가 복사되었습니다.");
+      } catch (e) {
+        alert("복사에 실패했어요. 계좌번호를 직접 복사해주세요.");
+      }
+      document.body.removeChild(ta);
+    }
 
-  if (document.readyState === 'complete') l();
-  else window.addEventListener('DOMContentLoaded', l);
-})();
-</script>
+    function goSuccess(){
+      window.location.href = "success.html";
+    }
 
-<!-- ChannelTalk: boot (ONLY ONCE) -->
-<script>
-ChannelIO('boot', {
-  pluginKey: ''
-});
-</script>
+    document.addEventListener('DOMContentLoaded', () => showStep(1));
+  </script>
 
-<!-- Netlify form detection용 (숨김 폼 / 삭제 금지) -->
-<form name="apartment-apply" data-netlify="true" hidden>
-  <input type="text" name="name">
-  <input type="tel" name="phone">
-  <input type="email" name="email">
-  <input type="text" name="payer">
-  <input type="tel" name="cash_phone">
-  <input type="text" name="address">
-  <textarea name="note"></textarea>
-</form>
-  
+  <!-- ChannelTalk: loader (ONLY ONCE) -->
+  <script>
+  (function() {
+    var w = window;
+    if (w.ChannelIO) return;
+    var ch = function() { ch.c(arguments); };
+    ch.q = [];
+    ch.c = function(args) { ch.q.push(args); };
+    w.ChannelIO = ch;
+
+    function l() {
+      if (w.ChannelIOInitialized) return;
+      w.ChannelIOInitialized = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+
+    if (document.readyState === 'complete') l();
+    else window.addEventListener('DOMContentLoaded', l);
+  })();
+  </script>
+
+  <!-- ChannelTalk: boot (ONLY ONCE) -->
+  <script>
+  ChannelIO('boot', {
+    pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
+  });
+  </script>
+
 </body>
 </html>
-
