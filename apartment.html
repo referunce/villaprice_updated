@@ -426,5 +426,16 @@ ChannelIO('boot', {
 });
 </script>
 
+<!-- Netlify form detection용 (숨김 폼 / 삭제 금지) -->
+<form name="apartment-apply" data-netlify="true" hidden>
+  <input type="text" name="name">
+  <input type="tel" name="phone">
+  <input type="email" name="email">
+  <input type="text" name="payer">
+  <input type="tel" name="cash_phone">
+  <input type="text" name="address">
+  <textarea name="note"></textarea>
+</form>
+  
 </body>
 </html>
