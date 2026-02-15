@@ -211,7 +211,7 @@
                   type="tel"
                   name="phone"
                   placeholder="010-0000-0000"
-                  pattern="d{3,4}-?\\d{3,4}-?\\d{4}$"
+                  pattern="^01[016789][0-9]{7,8}$|^01[016789]-[0-9]{3,4}-[0-9]{4}$"
                   required
                 />
               </div>
@@ -315,8 +315,8 @@
             <div class="kv" style="margin-top:10px">
               <b>입금 계좌</b>
               <span>
-                신한은행 000-000-000000<br>
-                예금주: 래퍼런스
+                신한은행 110-531-063767<br>
+                예금주: 이혜리(래퍼런스)
               </span>
             </div>
 
@@ -431,7 +431,7 @@
   // ✅ 계좌 복사 (QR 없이)
   function copyAccount(){
     // TODO: 아래 계좌정보를 실제 값으로 수정하세요.
-    const acct = "신한은행 000-000-000000 (예금주: 래퍼런스)";
+    const acct = "신한은행 110-531-063767 (예금주: 이혜리(래퍼런스))";
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(acct)
         .then(() => alert("계좌정보가 복사되었습니다."))
