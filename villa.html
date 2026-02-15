@@ -403,15 +403,30 @@
     const form = document.getElementById('applyForm');
     const formData = new FormData(form);
 
-    fetch("/", { method: "POST", body: formData })
-      .then(() => {
-        renderReview(formData);
-        showStep(2);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      })
-      .catch(() => {
-        alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
-      });
+const formData = new FormData(form);
+
+// 🔥 Netlify Forms 전용 인코딩 (이게 핵심)
+const params = new URLSearchParams();
+for (const [k, v] of formData.entries()) {
+  params.append(k, v);
+}
+
+fetch("/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  body: params.toString()
+})
+.then(() => {
+  renderReview(formData);
+  showStep(2);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+})
+.catch(() => {
+  alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
+});
+
   }
 
   function renderReview(fd){
