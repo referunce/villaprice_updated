@@ -231,17 +231,18 @@
             <label>입금자명(필수)</label>
             <input id="payer" name="payer" required placeholder="입금하실 분 성함(신청자와 다르면 꼭 입력)">
 
-            <label>현금영수증 발급용 휴대폰 번호(선택)</label>
-            <input
-              id="cash_phone"
-              name="cash_phone"
-              type="tel"
-              placeholder="010-0000-0000"
-              pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
-            />
-            <div class="muted" style="margin-top:8px">
-              현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다. (미기재 시 발급 불가)
-            </div>
+                <label>현금영수증 발급용 휴대폰 번호(발급 요청 시 입력)</label>
+          <input
+            id="cash_phone"
+            name="cash_phone"
+            type="tel"
+            placeholder="010-0000-0000"
+            pattern="^01[016789]-?\\d{3,4}-?\\d{4}$"
+          />
+          <div class="muted" style="margin-top:8px">
+            현금영수증 발급을 원하시면 입력해 주세요. <br>
+            현금영수증은 <b>리포트 발송 후 7일 내</b> 발급됩니다.
+          </div>
 
             <label>매물 주소(필수)</label>
             <input id="address" name="address" required placeholder="예) 서울 성북구 ○○로 00, ○동 ○호">
