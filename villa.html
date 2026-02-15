@@ -125,6 +125,29 @@
       .grid{grid-template-columns:1fr}
       .row{grid-template-columns:1fr}
     }
+        .pay-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;          /* ✅ 위로 뜨지 않게 */
+      gap:12px;
+      margin-bottom:10px;
+    }
+    
+    .pay-price{
+      font-weight:900;
+      font-size:16px;
+      text-align:right;
+      white-space:nowrap;          /* ✅ 가격은 한 줄 고정 */
+      flex:0 0 auto;               /* ✅ 줄어들지 않게 */
+    }
+    
+    .pay-sub{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.4;
+      margin-top:4px;
+    }
+
   </style>
 </head>
 
