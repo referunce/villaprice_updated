@@ -333,8 +333,39 @@
   document.addEventListener('DOMContentLoaded', () => showStep(1));
 </script>
   
+<!-- ChannelTalk: loader (ONLY ONCE) -->
 <script>
-  (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
+(function() {
+  var w = window;
+  if (w.ChannelIO) {
+    return;
+  }
+  var ch = function() { ch.c(arguments); };
+  ch.q = [];
+  ch.c = function(args) { ch.q.push(args); };
+  w.ChannelIO = ch;
+
+  function l() {
+    if (w.ChannelIOInitialized) return;
+    w.ChannelIOInitialized = true;
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  }
+
+  if (document.readyState === 'complete') l();
+  else window.addEventListener('DOMContentLoaded', l);
+})();
+</script>
+
+<!-- ChannelTalk: boot (ONLY ONCE) -->
+<script>
+ChannelIO('boot', {
+  pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
+});
 </script>
 </body>
 </html>
