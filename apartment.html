@@ -231,8 +231,6 @@
               동·호수까지 입력해 주시면 확인이 빠릅니다.
             </div>
 
-            <!-- ✅ 아파트는 추가 입력 없음(방/화장실/엘베 제거) -->
-
             <label>상황/조건(선택)</label>
             <textarea id="note" name="note" placeholder="예) 급매, 잔금 일정, 임차인 여부, 원하는 매도 시점 등"></textarea>
 
@@ -297,7 +295,7 @@
 
   <script>
     // (선택) 스프레드시트로도 보내려면 여기에 Apps Script 웹앱 URL 넣기
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec"
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec";
 
     function setDots(n){
       document.getElementById('dot1').classList.toggle('on', n>=1);
@@ -312,24 +310,31 @@
 
     async function goReview(e){
       e.preventDefault();
+      e.stopPropagation();
 
-      const addr = document.getElementById('address').value.trim();
-      if(addr.length < 6){
-        alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
-        return false;
-      }
-      if(!document.getElementById('agree').checked){
-        alert('개인정보 수집·이용 동의가 필요합니다.');
-        return false;
-      }
-      const payer = document.getElementById('payer').value.trim();
-      if(payer.length < 1){
-        alert('입금자명을 입력해 주세요.');
-        return false;
-      }
+      const submitBtn = e && e.submitter ? e.submitter : null;
+      if (submitBtn) submitBtn.disabled = true;
 
-      const form = document.getElementById('applyForm');
-      const fd = new FormData(form);
+      try {
+        const addr = document.getElementById('address').value.trim();
+        if(addr.length < 6){
+          alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
+          return false;
+        }
+
+        if(!document.getElementById('agree').checked){
+          alert('개인정보 수집·이용 동의가 필요합니다.');
+          return false;
+        }
+
+        const payer = document.getElementById('payer').value.trim();
+        if(payer.length < 1){
+          alert('입금자명을 입력해 주세요.');
+          return false;
+        }
+
+        const form = document.getElementById('applyForm');
+        const fd = new FormData(form);
 
         if (GAS_URL && GAS_URL.startsWith("https://script.google.com/")) {
           await fetch(GAS_URL, { method: "POST", body: fd });
@@ -338,12 +343,15 @@
         renderReview(fd);
         showStep(2);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
         return false;
 
       } catch (err) {
         console.error(err);
-        alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
+        alert("제출 처리 중 오류가 발생했어요. (네트워크/CORS 가능) 다시 시도해 주세요.");
         return false;
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
     }
 
@@ -442,10 +450,13 @@
 
   <!-- ChannelTalk: boot (ONLY ONCE) -->
   <script>
-  ChannelIO('boot', {
-    pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
-  });
+    // pluginKey 비어있으면 부팅하지 않게(콘솔 에러 방지)
+    const CHANNELTALK_KEY = "5219e9e6-1d78-4618-b1c4-7ecf35a81bc0";
+    if (CHANNELTALK_KEY) {
+      ChannelIO('boot', { pluginKey: CHANNELTALK_KEY });
+    }
   </script>
 
 </body>
 </html>
+
