@@ -214,8 +214,8 @@
         <div id="step1">
           <h1 style="margin-top:14px;font-size:20px">1) 접수(정보 입력)</h1>
 
-          <!-- ✅ 제출 시: (1) Netlify Forms 저장 → (2) step2 보여주기 -->
-          <form id="applyForm" name="villa-apply" method="POST" data-netlify="true" action="/" onsubmit="return goReview(event)" novalidate>
+          <!-- ✅ action 제거: submit 시 index로 튀는 원인 제거 -->
+          <form id="applyForm" name="villa-apply" method="POST" data-netlify="true" onsubmit="return goReview(event)" novalidate>
             <input type="hidden" name="form-name" value="villa-apply">
             <input type="hidden" name="product" value="빌라/비아파트 리포트 (10만원 · 부가세 포함)">
 
@@ -356,9 +356,10 @@
   </div>
 
   <script>
-    // (선택) 스프레드시트로도 보내려면 여기에 Apps Script 웹앱 URL 넣기
-    // 비워두면 Netlify Forms만 저장됨
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec"
+    // (선택) 스프레드시트로도 보내려면 Apps Script 웹앱 URL 넣기
+    // 비워두면 호출하지 않음
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbwx2d039hc94FAyVBynfMq7q4wT5UyJzYg0Qf52pD3qKpTeauQgd--hYMKUJKkGY9y6eg/exec";
+
     function setDots(n){
       document.getElementById('dot1').classList.toggle('on', n>=1);
       document.getElementById('dot2').classList.toggle('on', n>=2);
@@ -372,24 +373,32 @@
 
     async function goReview(e){
       e.preventDefault();
+      e.stopPropagation();
 
-      const addr = document.getElementById('address').value.trim();
-      if(addr.length < 8){
-        alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
-        return false;
-      }
-      if(!document.getElementById('agree').checked){
-        alert('개인정보 수집·이용 동의가 필요합니다.');
-        return false;
-      }
-      const payer = document.getElementById('payer').value.trim();
-      if(payer.length < 1){
-        alert('입금자명을 입력해 주세요.');
-        return false;
-      }
+      // 중복 제출 방지
+      const submitBtn = e && e.submitter ? e.submitter : null;
+      if (submitBtn) submitBtn.disabled = true;
 
-      const form = document.getElementById('applyForm');
-      const fd = new FormData(form);
+      try {
+        const addr = document.getElementById('address').value.trim();
+        if(addr.length < 8){
+          alert('주소를 더 자세히 입력해 주세요. (동·호 포함)');
+          return false;
+        }
+
+        if(!document.getElementById('agree').checked){
+          alert('개인정보 수집·이용 동의가 필요합니다.');
+          return false;
+        }
+
+        const payer = document.getElementById('payer').value.trim();
+        if(payer.length < 1){
+          alert('입금자명을 입력해 주세요.');
+          return false;
+        }
+
+        const form = document.getElementById('applyForm');
+        const fd = new FormData(form);
 
         // (선택) Google Apps Script로도 저장
         if (GAS_URL && GAS_URL.startsWith("https://script.google.com/")) {
@@ -399,12 +408,15 @@
         renderReview(fd);
         showStep(2);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
         return false;
 
       } catch (err) {
         console.error(err);
-        alert("제출 저장에 실패했어요. 네트워크 상태를 확인해주세요.");
+        alert("제출 처리 중 오류가 발생했어요. (네트워크/CORS 가능) 다시 시도해 주세요.");
         return false;
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
     }
 
@@ -478,37 +490,38 @@
     document.addEventListener('DOMContentLoaded', () => showStep(1));
   </script>
 
-  <!-- ChannelTalk: loader (ONLY ONCE) -->
+  <!-- ChannelTalk (너가 쓰는 경우만 pluginKey 넣어) -->
   <script>
-  (function() {
-    var w = window;
-    if (w.ChannelIO) return;
-    var ch = function() { ch.c(arguments); };
-    ch.q = [];
-    ch.c = function(args) { ch.q.push(args); };
-    w.ChannelIO = ch;
+    (function() {
+      var w = window;
+      if (w.ChannelIO) return;
+      var ch = function() { ch.c(arguments); };
+      ch.q = [];
+      ch.c = function(args) { ch.q.push(args); };
+      w.ChannelIO = ch;
 
-    function l() {
-      if (w.ChannelIOInitialized) return;
-      w.ChannelIOInitialized = true;
-      var s = document.createElement('script');
-      s.type = 'text/javascript';
-      s.async = true;
-      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
-      var x = document.getElementsByTagName('script')[0];
-      x.parentNode.insertBefore(s, x);
-    }
+      function l() {
+        if (w.ChannelIOInitialized) return;
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
 
-    if (document.readyState === 'complete') l();
-    else window.addEventListener('DOMContentLoaded', l);
-  })();
+      if (document.readyState === 'complete') l();
+      else window.addEventListener('DOMContentLoaded', l);
+    })();
   </script>
 
-  <!-- ChannelTalk: boot (ONLY ONCE) -->
   <script>
-  ChannelIO('boot', {
-    pluginKey: '5219e9e6-1d78-4618-b1c4-7ecf35a81bc0'
-  });
+    // pluginKey가 비어있으면 부팅하지 않게 처리 (콘솔 에러 방지)
+    const CHANNELTALK_KEY = "5219e9e6-1d78-4618-b1c4-7ecf35a81bc0";
+    if (CHANNELTALK_KEY) {
+      ChannelIO('boot', { pluginKey: CHANNELTALK_KEY });
+    }
   </script>
 
 </body>
