@@ -391,18 +391,6 @@
       const form = document.getElementById('applyForm');
       const fd = new FormData(form);
 
-      // Netlify Forms 안정 제출 (x-www-form-urlencoded)
-      const params = new URLSearchParams();
-      for (const [k, v] of fd.entries()) params.append(k, v);
-
-      try {
-        const netlifyRes = await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: params.toString()
-        });
-        if(!netlifyRes.ok) throw new Error("Netlify submit failed: " + netlifyRes.status);
-
         // (선택) Google Apps Script로도 저장
         if (GAS_URL && GAS_URL.startsWith("https://script.google.com/")) {
           await fetch(GAS_URL, { method: "POST", body: fd });
